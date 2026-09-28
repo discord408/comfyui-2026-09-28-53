@@ -1,7 +1,5 @@
 # clean base image containing only comfyui, comfy-cli and comfyui-manager
 FROM runpod/worker-comfyui:5.10.0-base
-# Upgrade ComfyUI to the version required by the workflow
-RUN comfy --skip-prompt --workspace /comfyui install --version 0.37.0 --nvidia
 # build-time tokens for gated downloads are read from BuildKit secret
 # mounts — they are never written to a layer or to image history.
 # pass via: docker buildx build --secret id=hf_token,env=HF_TOKEN .
